@@ -26,9 +26,9 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li class="@yield('product')">
                     <a href="backend/chart.html">
-                        <i class="fas fa-chart-bar"></i>Charts</a>
+                        <i class="fas fa-archive"></i>Sản phẩm</a>
                 </li>
                 <li>
                     <a href="backend/table.html">
@@ -36,7 +36,7 @@
                 </li>
                 <li class="@yield('user')">
                     <a href="{{ route('home-user') }}">
-                        <i class="far fa-check-square"></i>User</a>
+                        <i class="fas fa-users"></i>User</a>
                 </li>
                 <li>
                     <a href="backend/calendar.html">

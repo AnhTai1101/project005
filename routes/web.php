@@ -35,6 +35,9 @@ Route::group(['namespace' => 'backend'], function () {
             Route::post('post-info','userController@goEdit')->name('post-edit-user');
             Route::get('delete/{id}', 'userController@delete')->name('delete-user');
         });
+        Route::group(['prefix' => 'product'], function () {
+            Route::get('home', 'productController@home')->name('home-product');
+        });
     });
 });
 // End Adnin

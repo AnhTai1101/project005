@@ -210,7 +210,7 @@ section {
 }
 
 .section__content--p30 {
-    padding: 0 30px;
+    padding: 0 0px;
 }
 
 @media (max-width: 991px) {
@@ -266,7 +266,7 @@ section {
 }
 
 .main-content {
-    padding-top: 116px;
+    padding-top: 90px;
     min-height: 100vh;
 }
 

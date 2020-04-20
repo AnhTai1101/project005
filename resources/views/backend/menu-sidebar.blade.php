@@ -7,9 +7,10 @@
     <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
-                <li class="active has-sub">
-                    <a class="js-arrow" href="backend/#">
-                        <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                <li class="@yield('home') has-sub">
+                    <a class="js-arrow" href="{{ route('homeBackend') }}">
+                        <i class="fas fa-tachometer-alt"></i>Dashboard
+                    </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
                             <a href="backend/index.html">Dashboard 1</a>
@@ -33,9 +34,9 @@
                     <a href="backend/table.html">
                         <i class="fas fa-table"></i>Tables</a>
                 </li>
-                <li>
-                    <a href="backend/form.html">
-                        <i class="far fa-check-square"></i>Forms</a>
+                <li class="@yield('user')">
+                    <a href="{{ route('home-user') }}">
+                        <i class="far fa-check-square"></i>User</a>
                 </li>
                 <li>
                     <a href="backend/calendar.html">

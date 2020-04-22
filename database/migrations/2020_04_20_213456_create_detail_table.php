@@ -26,6 +26,10 @@ class CreateDetailTable extends Migration
             $table->foreign('size_id')->references('id')->on('size')->onDelete('cascade');
             // quantity
             $table->integer('quantity');
+            // price
+            $table->integer('price');
+            // promotion
+            $table->integer('promotion')->nullable();
             // time
             $table->timestamps();
         });

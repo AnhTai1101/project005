@@ -3,8 +3,11 @@
 @section('product', 'active')
 @section('main')
     <div class="container">
+        
         <h3 class="text-info">Trang sản phẩm</h3>
         <hr>
+        <a href="{{ route('add-product') }}"><button class="btn btn-info">Thêm sản phẩm</button></a>
+        <br><br>
         <div class="card">
             <table class="table table-hover shopping-cart-wrap">
                 <thead class="text-muted">
@@ -35,13 +38,8 @@
                                 </figcaption>
                             </figure> 
                         </td>
-                        <td> 
-                            <select class="form-control">
-                                <option>1</option>
-                                <option>2</option>	
-                                <option>3</option>	
-                                <option>4</option>	
-                            </select> 
+                        <td class="text-center"> 
+                            <span>1</span>
                         </td>
                         <td> 
                             <div class="price-wrap"> 

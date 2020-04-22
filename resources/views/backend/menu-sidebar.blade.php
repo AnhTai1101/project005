@@ -7,9 +7,9 @@
     <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
-                <li class="@yield('home') has-sub">
-                    <a class="js-arrow" href="{{ route('homeBackend') }}">
-                        <i class="fas fa-tachometer-alt"></i>Dashboard
+                <li class="@yield('size') @yield('color') has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fas fa-tachometer-alt"></i>Thuộc tính
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
@@ -18,16 +18,16 @@
                         <li>
                             <a href="backend/index2.html">Dashboard 2</a>
                         </li>
-                        <li>
-                            <a href="backend/index3.html">Dashboard 3</a>
+                        <li class="@yield('size')">
+                            <a href="{{ route('home-size') }}">Kích cỡ</a>
                         </li>
-                        <li>
-                            <a href="backend/index4.html">Dashboard 4</a>
+                        <li class="@yield('color')">
+                            <a href="{{ route('home-color') }}">Màu sắc</a>
                         </li>
                     </ul>
                 </li>
                 <li class="@yield('product')">
-                    <a href="backend/chart.html">
+                    <a href="{{ route('home-product') }}">
                         <i class="fas fa-archive"></i>Sản phẩm</a>
                 </li>
                 <li>

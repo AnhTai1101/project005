@@ -35,8 +35,26 @@ Route::group(['namespace' => 'backend'], function () {
             Route::post('post-info','userController@goEdit')->name('post-edit-user');
             Route::get('delete/{id}', 'userController@delete')->name('delete-user');
         });
+        // product
         Route::group(['prefix' => 'product'], function () {
             Route::get('home', 'productController@home')->name('home-product');
+            Route::get('/', 'productController@home')->name('home-product');
+            Route::get('add', 'productController@add')->name('add-product');
+            Route::post('post-add', 'productController@getAdd')->name('post-add-product');
+        });
+        // color
+        Route::group(['prefix' => 'color'], function () {
+            //home
+            Route::get('home', 'colorController@home');
+            Route::get('/', 'colorController@home')->name('home-color');
+            // add
+            Route::get('add-color', 'colorController@add')->name('add-color');
+            Route::post('post-add-color', 'colorController@goAdd')->name('post-add-color');
+        });
+        // size
+        Route::group(['prefix' => 'size'], function () {
+            Route::get('/', 'sizeController@home')->name('home-size');
+            Route::get('home', 'sizeController@home');
         });
     });
 });

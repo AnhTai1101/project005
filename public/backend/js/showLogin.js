@@ -1,7 +1,8 @@
-$('.show-login').click(function(){
-    $('.show').toggle(500);
+
+$(document).ready(function(){
+    $('.hide-data').hide();
+    $('.show-input').click(function(){
+        $(this).parent().parent().children('.hide-data').show();
+        $(this).parent().parent().hide();
+    })
 })
-$('.edit-input').click(function(){
-    $(this).parent().parent().find('td.fix').add('p').css('color','red');
-    // console.log(name);
-});

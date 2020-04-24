@@ -24,5 +24,17 @@ class colorController extends Controller
         $color->save();
         return redirect(route('home-color'));
     }
-    // 
+    // edit
+    public function goEdit(nameRequest $req){
+        $color = color::find($req->id);
+        $color->name = $req->name;
+        // dd($req->name);
+        $color->save();
+        return redirect(route('home-color'));
+    }
+    // delete
+    public function delete($id){
+        color::find($id)->delete();
+        return redirect(route('home-color'));
+    }
 }

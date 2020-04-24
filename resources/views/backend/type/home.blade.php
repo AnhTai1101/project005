@@ -1,14 +1,14 @@
 @extends('backend.layout')
-@section('title', 'Trang kích cỡ')
-@section('color','active')
+@section('title', 'Kiểu')
+@section('type','active')
 @section('main')
 <div class="col-lg-6">
     <!-- TOP CAMPAIGN-->
     <div class="top-campaign">
-        <form action="{{ route('post-add-color') }}" method="post">
+        <form action="{{ route('post-add-type') }}" method="post">
             @csrf
             <div class="input-group">
-                <input type="text" id="input2-group2" name="name" placeholder="Kích cỡ" class="form-control">
+                <input type="text" id="input2-group2" name="name" placeholder="Kiểu" class="form-control">
                 <div class="input-group-btn">
                     <button class="btn btn-primary">Thêm</button>
                 </div>
@@ -21,7 +21,7 @@
         </form>
         <br>
         <br>
-        <h3 class="title-3 m-b-30">Danh sách màu sắc</h3>
+        <h3 class="title-3 m-b-30">Danh mục sản phẩm</h3>
         
         <div class="table-responsive">
             <table class="table table-top-campaign">
@@ -32,11 +32,11 @@
                             <td>{{ $data->name }}</td>
                             <td>
                                 <button class= "show-input btn btn-primary">Sửa</button>
-                                <a href="{{ route('delete-color', $data->id) }}" class="btn btn-danger">Xóa</a>
+                                <a href="{{ route('delete-type', $data->id) }}" class="btn btn-danger">Xóa</a>
                             </td>
                         </tr>
                         <tr class="hide-data" data-id="{{ $data->id }}">
-                            <form action="{{ route('edit-color') }}" method="post">
+                            <form action="{{ route('edit-type') }}" method="post">
                                 @csrf
                                 <td>{{ $data->id }}</td>
                                 <input type="hidden" name="id" value="{{ $data->id }}">

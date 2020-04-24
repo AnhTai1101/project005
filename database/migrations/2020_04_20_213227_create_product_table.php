@@ -34,6 +34,12 @@ class CreateProductTable extends Migration
             $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
             // description
             $table->text('description')->nullable();
+            // price default
+            $table->integer('price');
+            // promotion default
+            $table->integer('promotion')->nullable();
+            // quantity
+            $table->integer('qty');
             $table->timestamps();
         });
     }

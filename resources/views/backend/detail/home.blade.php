@@ -1,27 +1,27 @@
 @extends('backend.layout')
-@section('title', 'Trang sản phẩm')
+@section('title', 'Trang chi tiết sản phẩm')
 @section('product', 'active')
 @section('main')
     <div class="container">
         
-        <h3 class="text-info">Trang sản phẩm</h3>
+        <h3 class="text-info">Trang chi tiết sản phẩm</h3>
         <hr>
-        <a href="{{ route('add-product') }}"><button class="btn btn-info">Thêm sản phẩm</button></a>
+        <a href="{{ route('add-detail', $product->id) }}"><button class="btn btn-info">Thêm chi tiết</button></a>
         <br><br>
         <div class="card">
             <table class="table table-hover shopping-cart-wrap">
                 <thead class="text-muted">
                     <tr>
                         <th scope="col">Tên sản phẩm</th>
-                        <th scope="col">Thể loại</th>
-                        <th scope="col">Danh mục</th>
+                        <th scope="col">Màu</th>
+                        <th scope="col">Kích cỡ</th>
                         <th scope="col" width="120">Số lượng</th>
                         {{-- <th scope="col" width="120">Price</th> --}}
                         <th scope="col" width="230" class="text-right">Hành động</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($products as $product)
+                    @foreach ($details as $detail)
                         <tr>
                             <td>
                                 <figure class="media">
@@ -29,24 +29,24 @@
                                         <img style="max-height: 150px" src="images/{{ $product->image1 }}" class="img-thumbnail img-sm">
                                     </div>
                                     <figcaption class="media-body">
-                                        <a href="{{ route('home-detail', $product->id) }}">
+                                        <a href="{{ route('edit-detail', $product->id) }}">
                                             <h6 class="title text-truncate">&nbsp;&nbsp;{{ $product->name }}</h6>
                                         </a>
                                         <dl class="param param-inline small">
                                             <dt>&nbsp;&nbsp;Giá gốc: </dt>
-                                            <dd>&nbsp;{{ number_format($product->price) }} .đ</dd>
+                                            <dd>&nbsp;{{ number_format($detail->price) }} .đ</dd>
                                         </dl>
                                         <dl class="param param-inline small">
                                             <dt>&nbsp;&nbsp;Giá khuyến mại: </dt>
-                                            <dd>&nbsp;{{ number_format($product->promotion) }} .đ</dd>
+                                            <dd>&nbsp;{{ number_format($detail->promotion) }} .đ</dd>
                                         </dl>
                                     </figcaption>
                                 </figure> 
                             </td>
-                            <td>{{ $product->type->name }}</td>
-                            <td>{{ $product->category->name }}</td>
+                            <td>{{ $detail->color->name }}</td>
+                            <td>{{ $detail->size->name }}</td>
                             <td class="text-center"> 
-                                <span>{{ $product->qty }}</span>
+                                <span>{{ $detail->quantity }}</span>
                             </td>
                             {{-- <td> 
                                 <div class="price-wrap"> 
@@ -55,15 +55,14 @@
                                 </div> <!-- price-wrap .// -->
                             </td> --}}
                             <td class="text-right"> 
-                                <a href="{{ route('edit-product', $product->id) }}"><button class="btn btn-outline-success">Sửa</button></a> 
-                                <a href="{{ route('add-detail', $product->id) }}"><button title="Thêm số lượng sản phẩm" class="btn btn-outline-success">Thêm</button></a> 
-                                <a href="{{ route('delete-product', $product->id) }}" class="btn btn-outline-danger"> × Xóa</a>
+                                <a href="{{ route('edit-detail', $detail->id) }}"><button class="btn btn-outline-success">Sửa</button></a>
+                                <a href="{{ route('delete-detail', $detail->id) }}" class="btn btn-outline-danger"> × Xóa</a>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
-            {{ $products->links() }}
+            {{ $details->links() }}
         </div> <!-- card.// -->
     </div> 
 @endsection

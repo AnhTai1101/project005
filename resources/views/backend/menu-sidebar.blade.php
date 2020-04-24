@@ -7,16 +7,16 @@
     <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
-                <li class="@yield('size') @yield('color') has-sub">
-                    <a class="js-arrow" href="#">
+                <li class="@yield('size') @yield('color') @yield('type') @yield('category') has-sub">
+                    <a href="#" class="js-arrow">
                         <i class="fas fa-tachometer-alt"></i>Thuộc tính
                     </a>
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li>
-                            <a href="backend/index.html">Dashboard 1</a>
+                        <li class="@yield('type')">
+                            <a href="{{ route('home-type') }}">Kiểu</a>
                         </li>
-                        <li>
-                            <a href="backend/index2.html">Dashboard 2</a>
+                        <li class="@yield('category')">
+                            <a href="{{ route('home-category') }}">Danh mục</a>
                         </li>
                         <li class="@yield('size')">
                             <a href="{{ route('home-size') }}">Kích cỡ</a>
@@ -28,7 +28,8 @@
                 </li>
                 <li class="@yield('product')">
                     <a href="{{ route('home-product') }}">
-                        <i class="fas fa-archive"></i>Sản phẩm</a>
+                        <i class="fas fa-archive"></i>Sản phẩm
+                    </a>
                 </li>
                 <li>
                     <a href="backend/table.html">

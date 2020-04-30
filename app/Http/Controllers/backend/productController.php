@@ -152,7 +152,17 @@ class productController extends Controller
 
     // detroy
     public function delete($id){
-        product::where('id', $id)->delete();
+        $product = product::where('id', $id)->first();
+        if($product->image1 !== ''){
+            unlink('images/'.$product->image1);
+        }
+        if($product->image2 !== ''){
+            unlink('images/'.$product->image2);
+        }
+        if($product->image3 !== ''){
+            unlink('images/'.$product->image3);
+        }
+        $product->delete();
         detail::where('product_id', $id)->delete();
         return redirect(route('home-product'));
     }

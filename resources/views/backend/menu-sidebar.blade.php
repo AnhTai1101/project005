@@ -31,9 +31,9 @@
                         <i class="fas fa-archive"></i>Sản phẩm
                     </a>
                 </li>
-                <li>
-                    <a href="backend/table.html">
-                        <i class="fas fa-table"></i>Tables</a>
+                <li class="@yield('slide')">
+                    <a href="{{ route('home-slide') }}">
+                        <i class="fas fa-table"></i>Slide</a>
                 </li>
                 <li class="@yield('user')">
                     <a href="{{ route('home-user') }}">

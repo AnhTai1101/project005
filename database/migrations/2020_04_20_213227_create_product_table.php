@@ -32,6 +32,9 @@ class CreateProductTable extends Migration
             // foreign
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
+            // slide
+            $table->unsignedBigInteger('slide_id')->nullable();
+            $table->foreign('slide_id')->references('id')->on('slide')->onDelete('cascade');
             // description
             $table->text('description')->nullable();
             // price default

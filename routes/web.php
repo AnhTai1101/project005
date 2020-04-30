@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('hello', 'DemoController@index');
 // Admin
@@ -112,10 +110,20 @@ Route::group(['namespace' => 'backend'], function () {
             // delete
             Route::get('delete-category/{id}', 'categoryController@delete')->name('delete-category');
         });
+        Route::group(['prefix' => 'slide'], function () {
+            Route::get('/', 'slideController@home')->name('home-slide');
+            // add
+            Route::get('add', 'slideController@add')->name('add-slide');
+            Route::post('post-add', 'slideController@goAdd')->name('post-add-slide');
+            // edit
+            Route::get('edit/{id}', 'slideController@edit')->name('edit-slide');
+            Route::post('post-edit', 'slideController@goEdit')->name('post-edit-slide');
+        });
     });
 });
 // End Adnin
 // frontend
 Route::group(['namespace' => 'frontend'], function () {
-    Route::get('Trang-chu', 'homeController@home')->name('trang-chu');
+    Route::get('Trang-chu', 'homeController@home');
+    Route::get('/', 'homeController@home')->name('trang-chu');
 });

@@ -1,0 +1,5 @@
+- Trong bộ lọc của js tại home.
+    - ta dùng isotope để có thể sử dụng ta khai báo tên của class được lọc tại data-filter và phải thêm dấu chấm trước tên.
+    - tên đó phải trùng với class trong thẻ div bao quanh khối đó.
+- Muốn chỉnh sửa bảng ta có thể tạo thêm 1 class migration mới để chỉnh sửa với command
+     php artisan make:migration tenClass --table=tenTable( cần sửa)

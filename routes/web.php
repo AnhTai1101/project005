@@ -127,8 +127,31 @@ Route::group(['namespace' => 'frontend'], function () {
     Route::get('Trang-chu', 'homeController@home');
     Route::get('/', 'homeController@home')->name('trang-chu');
     // product
-    Route::get('Tat-ca', 'productController@home')->name('all-product');
+    
     // chi tiết sản phẩm
-    Route::get('San-Pham/{id}', 'productController@detail')->name('fn-detail-product');
+    
+    // filter
+    // - id-desc
+    Route::group(['prefix' => 'San-Pham'], function () {
+        Route::get('Moi', 'filterController@id_new')->name('new-id');
+        Route::get('Chi-tiet/{id}', 'productController@detail')->name('fn-detail-product');
+        Route::get('/', 'productController@home')->name('all-product');
+        // gia giam dan
+        Route::get('Gia-giam', 'filterController@price_reduction')->name('price-reduction');
+        // tăng dần
+        Route::get('Gia-tang', 'filterController@price_increase')->name('price-increase');
+        // <150k
+        Route::get('Duoi-150k', 'filterController@price150')->name('duoi-150');
+        // >150k and <300k
+        Route::get('Duoi-300k', 'filterController@price300')->name('duoi-300');
+        // 300-500
+        Route::get('Duoi-500', 'filterController@price500')->name('duoi-500');
+        // 500- 2.
+        Route::get('Duoi-2t', 'filterController@price2')->name('duoi-2t');
+        // 2.
+        Route::get('Tren-2t', 'filterController@price2t')->name('tren-2t');
+        // mau sac
+        Route::get('Mau/{id}', 'filterController@color')->name('fn-color');
+    });
 
 });

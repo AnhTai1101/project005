@@ -73,7 +73,7 @@
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
-					<a href="frontend/#" class="logo">
+					<a href="{{ route('trang-chu') }}" class="logo">
 						<img src="frontend/images/icons/logo-01.png" alt="IMG-LOGO">
 					</a>
 

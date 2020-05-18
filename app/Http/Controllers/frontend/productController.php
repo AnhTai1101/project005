@@ -19,6 +19,8 @@ class productController extends Controller
         view()->share('products', $products);
         $category = category::all();
         view()->share('category', $category);
+        $color = color::all();
+        view()->share('color', $color);
         
 
     }

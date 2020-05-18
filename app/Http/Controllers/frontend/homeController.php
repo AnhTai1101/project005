@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\product;
 use App\Models\category;
 use App\Models\slide;
+use App\Models\color;
 
 class homeController extends Controller
 {
@@ -18,6 +19,8 @@ class homeController extends Controller
         $slide = slide::orderBy('id', 'desc')->take(4)->get();
         $category = category::all();
         view()->share('slide', $slide);
+        $color = color::all();
+        view()->share('color', $color);
         view()->share('category', $category);
     }
     public function home(){

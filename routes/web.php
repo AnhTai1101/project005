@@ -126,4 +126,9 @@ Route::group(['namespace' => 'backend'], function () {
 Route::group(['namespace' => 'frontend'], function () {
     Route::get('Trang-chu', 'homeController@home');
     Route::get('/', 'homeController@home')->name('trang-chu');
+    // product
+    Route::get('Tat-ca', 'productController@home')->name('all-product');
+    // chi tiết sản phẩm
+    Route::get('San-Pham/{id}', 'productController@detail')->name('fn-detail-product');
+
 });

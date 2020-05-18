@@ -4,6 +4,7 @@
 	<title>@yield('title')</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<base href="{{ asset('') }}">
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="frontend/images/icons/favicon.png"/>
 <!--===============================================================================================-->
@@ -38,7 +39,7 @@
 <body class="animsition">
 	
 	<!-- Header -->
-	<header>
+	<header @yield('header')>
 		<!-- Header desktop -->
 		<div class="container-menu-desktop">
 			<!-- Topbar -->
@@ -89,7 +90,7 @@
 							</li>
 
 							<li>
-								<a href="frontend/product.html">Sản phẩm</a>
+								<a href="{{ route('all-product') }}">Sản phẩm</a>
 							</li>
 
 							<li class="label1" data-label1="hot">
@@ -160,6 +161,7 @@
 
 	<!-- Footer -->
 	@include('frontend.footer')
+
 
 
 	<!-- Back to top -->

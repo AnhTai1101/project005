@@ -10,10 +10,20 @@ use App\Models\slide;
 
 class homeController extends Controller
 {
-    public function home(){
-        $slide = slide::orderBy('id','desc')->take(4)->get();
+    /**
+     * Class constructor.
+     */
+    public function __construct()
+    {
+        $slide = slide::orderBy('id', 'desc')->take(4)->get();
         $category = category::all();
+        view()->share('slide', $slide);
+        view()->share('category', $category);
+    }
+    public function home(){
+        // $slide = slide::orderBy('id','desc')->take(4)->get();
+        // $category = category::all();
         $products = product::orderBy('id','desc')->take(16)->get();
-        return view('frontend.home', compact('products', 'category', 'slide'));
+        return view('frontend.home', compact('products'));
     }
 }

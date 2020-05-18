@@ -16,11 +16,11 @@
                     <a href="frontend/product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                         <div class="block1-txt-child1 flex-col-l">
                             <span class="block1-name ltext-102 trans-04 p-b-8">
-                                Women
+                                Phụ nữ 
                             </span>
 
                             <span class="block1-info stext-102 trans-04">
-                                Spring 2018
+                                Hè 2020
                             </span>
                         </div>
 
@@ -41,11 +41,11 @@
                     <a href="frontend/product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                         <div class="block1-txt-child1 flex-col-l">
                             <span class="block1-name ltext-102 trans-04 p-b-8">
-                                Men
+                                Nam giới
                             </span>
 
                             <span class="block1-info stext-102 trans-04">
-                                Spring 2018
+                                Hè 2020
                             </span>
                         </div>
 
@@ -66,11 +66,11 @@
                     <a href="frontend/product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                         <div class="block1-txt-child1 flex-col-l">
                             <span class="block1-name ltext-102 trans-04 p-b-8">
-                                Accessories
+                                Phụ kiện
                             </span>
 
                             <span class="block1-info stext-102 trans-04">
-                                New Trend
+                                Xu hướng mới
                             </span>
                         </div>
 

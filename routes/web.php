@@ -152,6 +152,17 @@ Route::group(['namespace' => 'frontend'], function () {
         Route::get('Tren-2t', 'filterController@price2t')->name('tren-2t');
         // mau sac
         Route::get('Mau/{id}', 'filterController@color')->name('fn-color');
+        // category
+        Route::get('Danh-muc/{id}','filterController@category')->name('fn-category');
+        // search
+        Route::post('search','filterController@search')->name('fn-search');
+    });
+    // cart
+    Route::group(['prefix' => 'Gio-hang'], function () {
+        Route::get('/', 'cartController@home')->name('fn-home-cart');
+
+        // add cart
+        Route::post('add', 'cartController@add')->name('fn-add-cart');
     });
 
 });

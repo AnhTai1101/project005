@@ -6,10 +6,10 @@
                     Danh mục sản phẩm
                 </h4>
                 <ul>
-                    {{-- @foreach ($category as $name)
+                    {{-- @foreach ($category as $category12)
                         <li class="p-b-10">
                             <a href="frontend/#" class="stext-107 cl7 hov-cl1 trans-04">
-                                {{ $name->image }}
+                                {{ $category12->name}}
                             </a>
                         </li>
                     @endforeach --}}

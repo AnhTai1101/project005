@@ -64,12 +64,29 @@ class filterController extends Controller
     }
     // color
     public function color($id){
+        // lấy các detail có color với id = color_id
         $product_id = detail::where('color_id', '=', $id)->pluck('product_id')->toArray();
+        // lọc phần tử trùng
         $echo =  array_unique($product_id);
+        // tạo mảng để nhận kết quả
         $products = [];
+        // lấy sản phẩm ra và ném vào mảng
         foreach($echo as $echo){
             $products[] = product::where('id',$echo)->first();
         }
+        // xuất ra view
+        return view('frontend/product.home', compact('products'));
+    }
+    // category
+    public function category($id){
+        $products = product::where('category_id',$id)->get();
+        return view('frontend/product.home', compact('products'));
+    }
+    // search
+    public function search(Request $req){
+        $search = $req->search;
+        $products = product::where('name', 'like', '%'.$search.'%')->take(10)->get();
+        // dd($products);
         return view('frontend/product.home', compact('products'));
     }
 }

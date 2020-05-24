@@ -84,61 +84,79 @@
 						
 						<!--  -->
 						<div class="p-t-33">
-							<div class="flex-w flex-r-m p-b-10">
-								<div class="size-203 flex-c-m respon6">
-									Kích cỡ
-								</div>
-
-								<div class="size-204 respon6-next">
-									<div class="rs1-select2 bor8 bg0">
-										<select class="js-select2" name="time">
-											<option>Tùy chọn</option>
-											@foreach ($size as $size)
-                                                <option>{{ $size->name }}</option>
-                                            @endforeach
-										</select>
-										<div class="dropDownSelect2"></div>
+							<form action="{{ route('fn-add-cart') }}" method="post" enctype="multipart/form-data">
+								@csrf
+								<input type="hidden" name="id" value="{{ $product->id }}">
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Kích cỡ
 									</div>
-								</div>
-							</div>
 
-							<div class="flex-w flex-r-m p-b-10">
-								<div class="size-203 flex-c-m respon6">
-									Màu
-								</div>
-
-								<div class="size-204 respon6-next">
-									<div class="rs1-select2 bor8 bg0">
-										<select class="js-select2" name="time">
-											<option>Tùy chọn</option>
-											@foreach ($color as $color)
-                                                <option>{{ $color->name }}</option>
-                                            @endforeach
-										</select>
-										<div class="dropDownSelect2"></div>
-									</div>
-								</div>
-							</div>
-
-							<div class="flex-w flex-r-m p-b-10">
-								<div class="size-204 flex-w flex-m respon6-next">
-									<div class="wrap-num-product flex-w m-r-20 m-tb-10">
-										<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-											<i class="fs-16 zmdi zmdi-minus"></i>
+									<div class="size-204 respon6-next">
+										<div class="rs1-select2 bor8 bg0">
+											<select class="js-select2" name="size_id">
+												<option value="">Tùy chọn</option>
+												@foreach ($size as $size)
+													<option value="{{ $size->id }}">{{ $size->name }}</option>
+												@endforeach
+											</select>
+											<div class="dropDownSelect2"></div>
 										</div>
+										@if($errors->has('size_id'))
+											<div class="alert alert-danger">
+												{{ $errors->first('size_id') }}
+											</div>
+										@endif
+									</div>
+								</div>
 
-										<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
-
-										<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-											<i class="fs-16 zmdi zmdi-plus"></i>
-										</div>
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Màu
 									</div>
 
-									<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-										Thêm vào giỏ
-									</button>
+									<div class="size-204 respon6-next">
+										<div class="rs1-select2 bor8 bg0">
+											<select class="js-select2" name="color_id">
+												<option value="">Tùy chọn</option>
+												@foreach ($color as $color)
+													<option value="{{ $color->id }}">{{ $color->name }}</option>
+												@endforeach
+											</select>
+											<div class="dropDownSelect2"></div>
+										</div>
+										@if($errors->has('color_id'))
+											<div class="alert alert-danger">
+												{{ $errors->first('color_id') }}
+											</div>
+										@endif
+									</div>
 								</div>
-							</div>	
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-204 flex-w flex-m respon6-next">
+										<div class="wrap-num-product flex-w m-r-20 m-tb-10">
+											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+												<i class="fs-16 zmdi zmdi-minus"></i>
+											</div>
+
+											<input class="mtext-104 cl3 txt-center num-product" type="number" name="quantity" value="1">
+
+											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+												<i class="fs-16 zmdi zmdi-plus"></i>
+											</div>
+										</div>
+										@if($errors->has('quantity'))
+											<div class="alert alert-danger">
+												{{ $errors->first('quantity') }}
+											</div>
+										@endif
+										<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+											Thêm vào giỏ
+										</button>
+									</div>
+								</div>	
+							</form>
 						</div>
 
 						<!--  -->

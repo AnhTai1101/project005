@@ -5,6 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<base href="{{ asset('') }}">
+
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="frontend/images/icons/favicon.png"/>
 <!--===============================================================================================-->
@@ -372,6 +374,7 @@
 <!--===============================================================================================-->
 	<script src="frontend/vendor/sweetalert/sweetalert.min.js"></script>
 	<script>
+		
 		$('.js-addwish-b2').on('click', function(e){
 			e.preventDefault();
 		});

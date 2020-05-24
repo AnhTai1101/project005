@@ -14,9 +14,9 @@
                 <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
                     Tất cả
                 </button>
-                @foreach ($category as $category)
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".{{ $category->id }}">
-                        {{ $category->name }}
+                @foreach ($category as $categories)
+                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".{{ $categories->id }}">
+                        {{ $categories->name }}
                     </button>
                 @endforeach
             </div>
@@ -38,11 +38,14 @@
             <!-- Search product -->
             <div class="dis-none panel-search w-full p-t-10 p-b-15">
                 <div class="bor8 dis-flex p-l-15">
-                    <button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
-                        <i class="zmdi zmdi-search"></i>
-                    </button>
-
-                    <input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search-product" placeholder="Theo tên . . .">
+                    <form action="{{ route('fn-search') }}" method="post">
+                        @csrf
+                        <button style="float: left; with: 10%;" class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
+                            <i class="zmdi zmdi-search"></i>
+                        </button>
+    
+                        <input style="float: left; with: 90%;" class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" name="search" placeholder="Theo tên . . .">
+                    </form>
                 </div>	
             </div>
 
@@ -55,7 +58,7 @@
                         </div>
 
                         <ul>
-                            <li class="p-b-6">
+                            {{-- <li class="p-b-6">
                                 <a href="frontend/#" class="filter-link stext-106 trans-04">
                                     Mặc định
                                 </a>
@@ -65,7 +68,7 @@
                                 <a href="frontend/#" class="filter-link stext-106 trans-04">
                                     Phổ biến
                                 </a>
-                            </li>
+                            </li> --}}
 
                             <li class="p-b-6">
                                 <a href="{{ route('new-id') }}" class="filter-link stext-106 trans-04 filter-link-active">
@@ -148,11 +151,14 @@
                         <div class="mtext-102 cl2 p-b-15">
                             Liên quan
                         </div>
-
                         <div class="flex-w p-t-4 m-r--5">
-                            <a href="frontend/#" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                Fashion
-                            </a>
+                            @foreach ($category as $category1)
+                            
+                                <a href="{{ route('fn-category', $category1->id) }}" class="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
+                                   {{ $category1->name}}
+                                </a>
+                            
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -174,7 +180,7 @@
 
                         <div class="block2-txt flex-w flex-t p-t-14">
                             <div class="block2-txt-child1 flex-col-l ">
-                                <a href="frontend/product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                <a href="{{ route('fn-detail-product', $product->id) }}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
                                     {{ $product->name }}
                                 </a>
 
